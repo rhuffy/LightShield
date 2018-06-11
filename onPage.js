@@ -17,8 +17,8 @@ function replaceElements(){
       //images[i].setAttribute("srcset", picture);
     }
   }
-  for (var i = 0; i < videos.length; i++) {
-    var len = videos[i].src.length;
-    videos[i].setAttribute("src", video);
-  };
+  // for (var i = 0; i < videos.length; i++) {
+  //   var len = videos[i].src.length;
+  //   videos[i].setAttribute("src", video);
+  // };
 }
