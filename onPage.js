@@ -11,11 +11,13 @@ setInterval(replaceElements, refreshRate);
 function replaceElements(){
   for (var i = 0; i < images.length; i++) {
     var len = images[i].src.length;
-    if (images[i].src.substring(len - 3, len) === "gif" || images[i].alt.substring(len - 3, len) === "gif" || images[i].src.includes(".gif") || images[i].alt.includes("gif")){
+    if (images[i].src.substring(len - 3, len) === "gif" ||
+        images[i].alt.substring(len - 3, len) === "gif" ||
+        images[i].src.includes(".gif") ||
+        images[i].alt.includes("gif")){
       if (!images[i].hasAttribute('inside')){
         images[i].setAttribute('inside', 0);
         images[i].style.opacity = minOpacity;
-
       }
       document.images[i].onload = obscure;
       document.images[i].onmouseenter = reveal;
