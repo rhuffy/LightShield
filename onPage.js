@@ -1,11 +1,12 @@
 var images = document.getElementsByTagName("img"),
     videos = document.getElementsByTagName("video");
 
-var minOpacity = 0.1;
+var minOpacity = 0.05,
+    refreshRate = 100,
+    revealDelay = 2000;
 
 replaceElements();
-setInterval(replaceElements, 100);
-
+setInterval(replaceElements, refreshRate);
 
 function replaceElements(){
   for (var i = 0; i < images.length; i++) {
@@ -13,6 +14,8 @@ function replaceElements(){
     if (images[i].src.substring(len - 3, len) === "gif" || images[i].alt.substring(len - 3, len) === "gif" || images[i].src.includes(".gif") || images[i].alt.includes("gif")){
       if (!images[i].hasAttribute('inside')){
         images[i].setAttribute('inside', 0);
+        images[i].style.opacity = minOpacity;
+
       }
       document.images[i].onload = obscure;
       document.images[i].onmouseenter = reveal;
@@ -28,7 +31,7 @@ function reveal(){
     if (thing.getAttribute('inside') == 1){
       thing.style.opacity = 1;
     }
-  }, 2000);
+  }, revealDelay);
 }
 
 function obscure(){
